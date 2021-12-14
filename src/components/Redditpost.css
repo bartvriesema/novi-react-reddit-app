@@ -1,0 +1,18 @@
+a:link {
+    text-decoration: none;
+    color: RGBA(255, 86, 0, 1);
+}
+
+a:visited {
+    text-decoration: none;
+    color: RGBA(255, 67, 0, 1)
+}
+
+
+.reddit-title {
+    font-size: 18px;
+}
+
+.reddit-info {
+    font-size: 12px;
+}
