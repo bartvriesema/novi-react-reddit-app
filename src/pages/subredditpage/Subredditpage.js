@@ -4,10 +4,12 @@ import {useParams} from "react-router-dom";
 import axios from "axios";
 import Subredditinfo from "../../components/Subredditinfo";
 import Loader from "../../components/Loader";
+import Error from "../../components/Error";
 
-function Subredditpage(props) {
+function Subredditpage() {
     const {subreddit} = useParams();
-    const [subRedditInfo, setSubRedditInfo] = useState([]);
+    const [subRedditInfo, setSubRedditInfo] = useState();
+    const [hasError, setHasError] = useState(false);
 
     async function getSubRedditInfo() {
         try {
@@ -15,6 +17,7 @@ function Subredditpage(props) {
             setSubRedditInfo(result.data.data);
         } catch (e) {
             console.log(e);
+            setHasError(true);
         }
     }
 
@@ -24,16 +27,20 @@ function Subredditpage(props) {
     }, [])
 
 
-    return (<div className="subredditinfo-container">
-            <h1>Subreddit information</h1>
-            {subRedditInfo.title ? <Subredditinfo
-                name={subRedditInfo.url}
-                banner={subRedditInfo.banner_img}
-                title={subRedditInfo.title}
-                description={subRedditInfo.public_description}
-                subs={subRedditInfo.subscribers}
-            /> : <Loader />}
-        </div>
+    return (<>
+            {hasError && <Error/>}
+
+            {!hasError && <div className="subredditinfo-container">
+                <h1>Subreddit information</h1>
+                {subRedditInfo ? <Subredditinfo
+                    name={subRedditInfo.url}
+                    banner={subRedditInfo.banner_img}
+                    title={subRedditInfo.title}
+                    description={subRedditInfo.public_description}
+                    subs={subRedditInfo.subscribers}
+                /> : <Loader/>}
+            </div>}
+        </>
 
     );
 }

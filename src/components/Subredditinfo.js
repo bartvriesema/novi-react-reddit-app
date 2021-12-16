@@ -5,8 +5,7 @@ import backIcon from "../assets/icons/back-svgrepo-com.svg";
 
 function Subredditinfo({name, banner, title, description, subs}) {
 
-    return (
-        <div className="subreddit-info">
+    return (<div className="subreddit-info">
             <h1 className="subreddit-name">{name}</h1>
             <img className="subreddit-banner-image" src={banner} alt={`${title} subreddit banner`}/>
             <h2 className="subreddit-title">{title}</h2>
@@ -16,8 +15,7 @@ function Subredditinfo({name, banner, title, description, subs}) {
                 <img className="subredditinfo-back-icon" src={backIcon} width="20px"/>
                 Back to overview
             </Link>
-        </div>
-    );
+        </div>);
 }
 
 export default Subredditinfo;

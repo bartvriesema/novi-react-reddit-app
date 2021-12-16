@@ -3,10 +3,11 @@ import axios from "axios";
 import './Homepage.css';
 import Redditpost from "../../components/Redditpost";
 import Loader from "../../components/Loader";
+import Error from "../../components/Error";
 
-function Homepage(props) {
+function Homepage() {
     const [redditHottest, setRedditHottest] = useState();
-
+    const [hasError, setHasError] = useState(false);
 
     async function getRedditHottest() {
         try {
@@ -14,6 +15,7 @@ function Homepage(props) {
             setRedditHottest(result.data.data.children);
         } catch (e) {
             console.log(e);
+            setHasError(true);
         }
     }
 
@@ -23,7 +25,9 @@ function Homepage(props) {
 
 
     return (<>
-        <div className="homepage-container">
+        {hasError && <Error />}
+
+        {!hasError && <div className="homepage-container">
             <h1>Hottest Reddit posts</h1>
             {redditHottest ? <ul className="reddit-post-list">
                 {redditHottest.map((redditPost) => {
@@ -39,8 +43,8 @@ function Homepage(props) {
                     )
 
                 })}
-            </ul> : <Loader />}
-        </div>
+            </ul> : <Loader/>}
+        </div>}
     </>);
 }
 
