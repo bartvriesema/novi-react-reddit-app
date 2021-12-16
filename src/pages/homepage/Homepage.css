@@ -1,0 +1,12 @@
+.homepage-container {
+    display: flex;
+    flex-direction: column;
+    width: 84%;
+    margin: 42px;
+    color: white;
+}
+
+.reddit-post-list {
+    list-style: none;
+}
+
