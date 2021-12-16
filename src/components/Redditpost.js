@@ -11,7 +11,9 @@ function Redditpost({title, comments, link, subreddit, upvotes}) {
                 {title}
             </a></h2>
             <div className="reddit-info">
-                <Link to={`/subreddit/${subreddit}`}>{subreddit}</Link> | {comments} comments - {upvotes} ups
+                <Link to={`/subreddit/${subreddit}`}>{subreddit} </Link>
+                | {new Intl.NumberFormat('nl-NL').format(comments)} comments
+                - {new Intl.NumberFormat('nl-NL').format(upvotes)} ups
             </div>
         </li>
     );

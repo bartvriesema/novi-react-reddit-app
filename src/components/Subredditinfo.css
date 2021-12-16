@@ -1,34 +1,55 @@
+.subredditinfo-container {
+    width: 84%;
+    margin: 42px;
+    color: white;
+}
+
 .subreddit-info {
     display: flex;
     flex-direction: column;
     width: 84%;
     margin: 42px;
+    padding: 10px;
+    border: rgb(129, 131, 132) solid 1px;
+    border-radius: 5px;
+    background-color: RGBA(26, 26, 27, 1)
 }
 
 .subreddit-name {
     font-size: 42px;
+    color: white;
 }
 
 .subreddit-banner-image {
-   width: 80%;
+    display: flex;
+    width: 80%;
     max-width: 800px;
+    padding: 20px;
+    color: white;
 }
 
 .subreddit-title {
-    font-size: 36px;
+    font-size: 29px;
+    color: white;
 }
 
 .subreddit-description {
-    font-size: 21px;
+    font-size: 23px;
     width: 80%;
     max-width: 800px;
+    color: white;
 }
 
 .subreddit-subs {
-    font-size: 18px;
-    color: dimgrey;
+    font-size: 17px;
+    color: rgb(129, 131, 132);
 }
 
 .subredditinfo-back {
     margin: 15px;
+}
+
+.subredditinfo-back-icon {
+    margin-right: 10px;
+    background-color: rgb(129, 131, 132);
 }
